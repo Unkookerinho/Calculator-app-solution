@@ -1,0 +1,165 @@
+main {
+  position: relative;
+
+  margin: auto;
+  width: 375px;
+  padding: 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  
+  font-weight: 700;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  height: 3rem;
+  width: 100%;
+
+  color: var(--clr-txt-top);
+
+  .logo {
+    font-size: 2rem;
+  }
+
+  .top-right {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+
+      .labels {
+        width: 4.10rem;
+
+        display: flex;
+        justify-content: space-around;
+        margin-left: auto;
+
+        font-size: 0.8rem;
+      }
+  }
+
+  .theme-changer {
+    font-size: 0.75rem;
+    letter-spacing: 0.08rem;
+
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+
+    .switch {
+      width: 4.20rem;
+      height: 1.5rem;
+
+      padding: 4px;
+
+      background-color: var(--clr-bg-toggle-background-keypad-background);
+      border-radius: 999px;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+
+      div {
+        cursor: pointer;
+
+        place-self: center;
+
+        height: 1rem;
+        width: 1rem;
+      }
+
+      .dot {
+        cursor: pointer;
+
+        position: relative;
+        top: -1rem;
+        left: 0;
+
+        height: 1rem;
+        width: 1rem;
+        
+        border-radius: 999px;
+        background-color: var(--clr-key-special-background-toggle);
+
+        transition: left 0.1s;
+      }
+    }
+  }
+}
+
+.display {
+  color: var(--clr-display);
+  position: absolute;
+  top: 6.75rem;
+  left: 2.25rem;
+  font-size: 0.8rem;
+}
+
+.output {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  padding: 1.55rem;
+
+  height: 5.8rem;
+  width: 100%;
+
+  border-radius: 10px;
+  background-color: var(--clr-bg-screen-background);
+
+  font-size: 2.3rem;
+
+  color: var(--clr-txt-top);
+
+  overflow-x: hidden;
+}
+
+.input {
+  height: 26.25rem;
+  width: 100%;
+
+  padding: 1.55rem;
+  
+  border-radius: 10px;
+  background-color: var(--clr-bg-toggle-background-keypad-background);
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+
+  div {
+    padding: 0.35rem;
+  }
+
+  .double {
+    grid-column: span 2;
+  }
+}
+
+
+@media(min-width: 1024px) {
+  main {
+    width: 600px;
+
+    .output {
+      height: 125px;
+      font-size: 3.3rem;
+    }
+    .input {
+      height: 480px;
+      gap: 0.75rem;
+    }
+
+    .display {
+      color: var(--clr-display);
+      position: absolute;
+      top: 6.75rem;
+      left: 2.25rem;
+      font-size: 1rem;
+    }
+  }
+}

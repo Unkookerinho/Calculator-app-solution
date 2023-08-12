@@ -1,0 +1,85 @@
+.theme-default {
+  // Backgrounds
+  --clr-bg-main-background: hsl(222, 26%, 31%);
+  --clr-bg-toggle-background-keypad-background: hsl(223, 31%, 20%);
+  --clr-bg-screen-background: hsl(224, 36%, 15%);
+
+  // Keys
+  --clr-key-primary-background: hsl(30, 25%, 89%);
+  --clr-key-primary-shadow: hsl(28, 16%, 65%);
+  --clr-key-primary-hover: white;
+
+  --clr-key-secondary-background: hsl(225, 21%, 49%);
+  --clr-key-secondary-shadow: hsl(224, 28%, 35%);
+  --clr-key-secondary-hover: #A1B3E1;
+
+  --clr-key-special-background-toggle: hsl(6, 63%, 50%);
+  --clr-key-special-shadow: hsl(6, 70%, 34%);
+  --clr-key-special-hover: #F96C5B;
+
+
+  // Text
+  --clr-txt-top: white;
+  --clr-display: hsl(0, 0%, 70%);
+  --clr-txt: hsl(221, 14%, 31%);
+  --clr-txt-secondary: hsl(221, 14%, 31%);
+  --clr-txt-special: white;
+
+}
+
+.theme-light {
+  // Backgrounds
+  --clr-bg-main-background: hsl(0, 0%, 90%);
+  --clr-bg-toggle-background-keypad-background: hsl(0, 5%, 81%);
+  --clr-bg-screen-background: hsl(0, 0%, 93%);
+
+  // Keys
+  --clr-key-primary-background: hsl(45, 7%, 89%);
+  --clr-key-primary-shadow: hsl(35, 11%, 61%);
+  --clr-key-primary-hover: white;
+
+  --clr-key-secondary-background: hsl(185, 42%, 37%);
+  --clr-key-secondary-shadow: hsl(185, 58%, 25%);
+  --clr-key-secondary-hover: #62B5BD;
+
+  --clr-key-special-background-toggle: hsl(25, 98%, 40%);
+  --clr-key-special-shadow: hsl(25, 99%, 27%);
+  --clr-key-special-hover: #FF8B38;
+  --clr-txt-special: white;
+
+
+  // Text
+  --clr-txt-top: hsl(60, 10%, 19%);
+  --clr-display: hsl(60, 10%, 49%);
+  --clr-txt: hsl(60, 10%, 19%);
+  --clr-txt-secondary: hsl(60, 10%, 19%);
+}
+
+.theme-dark {
+  // Backgrounds
+  --clr-bg-main-background: hsl(268, 75%, 9%);
+  --clr-bg-toggle-background-keypad-background: hsl(268, 71%, 12%);
+  --clr-bg-screen-background: hsl(268, 71%, 12%);
+
+  // Keys
+  --clr-key-primary-background: hsl(268, 47%, 21%);
+  --clr-key-primary-shadow: hsl(290, 70%, 36%);
+  --clr-key-primary-hover: #6B34AC;
+
+  --clr-key-secondary-background: hsl(281, 89%, 26%);
+  --clr-key-secondary-shadow: hsl(285, 91%, 52%);
+  --clr-key-secondary-hover: #8731AF;
+
+  --clr-key-special-background-toggle: hsl(176, 100%, 44%);
+  --clr-key-special-shadow: hsl(177, 92%, 70%);
+  --clr-key-special-hover: #94FFF9;
+
+  // Text
+  --clr-txt-top: hsl(52, 100%, 62%);
+  --clr-display: hsl(52, 100%, 32%);
+  --clr-txt: hsl(52, 100%, 62%);
+  --clr-txt-secondary: hsl(198, 20%, 13%);
+  --clr-txt-special: hsl(198, 20%, 13%);
+}
+
+

@@ -1,0 +1,49 @@
+button {
+  cursor: pointer;
+
+  width: 100%;
+  height: 100%;
+
+  border: none;
+  border-radius: 7px;
+
+  &.primary {
+    background-color: var(--clr-key-primary-background);
+    border-bottom: 4px solid var(--clr-key-primary-shadow);
+    color: var(--clr-txt);
+    padding-top: 8px;
+    font-size: 2rem;
+
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: var(--clr-key-primary-hover)
+    }
+  }
+  &.secondary {
+    background-color: var(--clr-key-secondary-background);
+    border-bottom: 4px solid var(--clr-key-secondary-shadow);
+    color: white;
+    padding-top: 4px;
+    font-size: 1.2rem;
+
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: var(--clr-key-secondary-hover)
+    }
+  }
+  &.special {
+    background-color: var(--clr-key-special-background-toggle);
+    border-bottom: 4px solid var(--clr-key-special-shadow);
+    color: var(--clr-txt-special);
+    padding-top: 8px;
+    font-size: 1.2rem;
+    
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: var(--clr-key-special-hover)
+    }
+  }
+}
