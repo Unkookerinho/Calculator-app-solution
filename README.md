@@ -8,5 +8,5 @@ This is a solution to the [Calculator app challenge on Frontend Mentor](https://
 
 ### Links
 
-- Solution URL:
-- Live Site URL:
+- Solution URL: https://www.frontendmentor.io/solutions/calculator-app-solution-3ugPFTWO38
+- Live Site URL: https://unkookerinho-calculator-app.netlify.app/
