@@ -211,8 +211,10 @@ main {
   color: var(--clr-display);
   position: absolute;
   top: 6.75rem;
-  left: 2.25rem;
+  left: 3rem;
+  width: 258px;
   font-size: 0.8rem;
+  text-align: end;
 }
 
 .output {
@@ -262,7 +264,8 @@ main {
     color: var(--clr-display);
     position: absolute;
     top: 6.75rem;
-    left: 2.25rem;
+    left: 4rem;
+    width: 458px;
     font-size: 1rem;
   }
 }
