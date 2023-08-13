@@ -44,8 +44,8 @@ darkSwitch.addEventListener('click', function () {
 
 // MATH
 
-const output = document.querySelector('.output');
-let display = document.querySelector('.display');
+const output = document.querySelector('h2');
+let display = document.querySelector('h3');
 let operation = '';
 
 // Output displays 0 on start
