@@ -151,6 +151,9 @@ main {
     .output {
       height: 125px;
       font-size: 3.3rem;
+      h2 {
+        max-width: 520px;
+      }
     }
     .input {
       height: 480px;

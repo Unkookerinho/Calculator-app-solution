@@ -263,6 +263,9 @@ main {
     height: 125px;
     font-size: 3.3rem;
   }
+  main .output h2 {
+    max-width: 520px;
+  }
   main .input {
     height: 480px;
     gap: 0.75rem;

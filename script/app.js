@@ -44,76 +44,149 @@ darkSwitch.addEventListener('click', function () {
 
 // MATH
 
-const output = document.querySelector('h2');
-let display = document.querySelector('.display');
+const mainDisplay = document.querySelector('h2');
+let secDisplay = document.querySelector('.display');
+
+let currentNum = '';
+let previousNums = '';
+
+// Operation display
 let operation = '';
 
-// Output displays 0 on start
-if (output.innerText === '') {
-  output.innerText = '0';
+// Button functions
+
+// If current number is empty, display 0
+function isEmpty() {
+  if (currentNum === '') {
+    mainDisplay.innerText = 0;
+  }
 }
 
-const buttons = document.querySelectorAll('button');
+// Adding number after clicking button, adding 0 only if it's not first value
+function addNum(btn) {
+  if (parseInt(btn) === 0 && currentNum === '') {
+  } else {
+    currentNum += btn;
+    mainDisplay.innerText = currentNum;
+  }
+}
 
+// Adding comma only if there is no othe comma in current number
+function comma() {
+  if (!currentNum.includes('.')) {
+    currentNum += '.';
+    mainDisplay.innerText = currentNum;
+  }
+}
+
+function operate(btn) {
+  if (
+    (['+', '-', '*', '/'].includes(previousNums.slice(-2, -1)) &&
+      currentNum === '') ||
+    currentNum === 0
+  ) {
+    if (btn === 'x') {
+      operation = '*';
+      previousNums = previousNums.slice(0, -3);
+      previousNums += ` ${operation} `;
+      secDisplay.innerText = previousNums;
+    } else {
+      operation = btn;
+      previousNums = previousNums.slice(0, -3);
+      previousNums += ` ${operation} `;
+      secDisplay.innerText = previousNums;
+    }
+  } else if (currentNum !== 0 && currentNum !== '') {
+    previousNums += currentNum;
+    previousNums = eval(previousNums);
+    currentNum = '';
+
+    if (btn === 'x') {
+      operation = '*';
+      previousNums += ` ${operation} `;
+      secDisplay.innerText = previousNums;
+    } else {
+      operation = btn;
+      previousNums += ` ${operation} `;
+      secDisplay.innerText = previousNums;
+    }
+
+    mainDisplay.innerText = currentNum;
+    isEmpty();
+  }
+}
+
+function equals() {
+  if (currentNum === '') {
+    currentNum = 0;
+  }
+
+  previousNums += currentNum;
+  currentNum = eval(previousNums);
+  secDisplay.innerText = `${previousNums} =`;
+  mainDisplay.innerText = currentNum;
+  currentNum = currentNum.toString();
+  previousNums = '';
+
+  if (mainDisplay.innerText === 'Infinity') {
+    reset();
+    mainDisplay.innerText = 'Cannot divide by 0.';
+  }
+
+  smallerFont();
+}
+
+// Changing font size depending on current number length
+function smallerFont() {
+  if (mainDisplay.innerText.length > 17) {
+    mainDisplay.style.fontSize = '1.55rem';
+  } else if (mainDisplay.innerText.length > 13) {
+    mainDisplay.style.fontSize = '1.85rem';
+  } else if (mainDisplay.innerText.length < 17) {
+    mainDisplay.style.fontSize = '3.3rem';
+  } else if (mainDisplay.innerText.length < 13) {
+    mainDisplay.style.fontSize = '1.85rem';
+  }
+}
+
+// Reseting calculator
+function reset() {
+  previousNums = '';
+  currentNum = '';
+  secDisplay.innerText = '';
+  isEmpty();
+  smallerFont();
+}
+
+// Deleting last index of current number
+function del() {
+  currentNum = currentNum.slice(0, -1);
+  mainDisplay.innerText = currentNum;
+  isEmpty();
+  smallerFont();
+}
+
+// Initializing button onclick events
+const buttons = document.querySelectorAll('button');
 for (let button of buttons) {
   let btn = button.innerText;
-  let includesDot = false;
-
   button.addEventListener('click', function () {
-    // If output is empty it shows 0
-    if (output.innerText === '0') {
-      output.innerText = '';
-    }
-
-    // Checks if there is already dot
-    if (!output.innerText.includes('.')) {
-      includesDot = false;
-    } else {
-      includesDot = true;
-    }
-
-    // Appending number
-    if ([1, 2, 3, 4, 5, 6, 7, 8, 9, 0].includes(parseInt(btn))) {
-      output.append(btn);
-      operation += btn;
-      display.innerText = operation;
-      // Adding dot but only when there is no other dot
-    } else if (btn === '.' && !includesDot) {
-      output.append(btn);
-      includesDot = true;
-      operation += '.';
-      display.innerText = operation;
-      // Reseting
+    smallerFont();
+    if (
+      [1, 2, 3, 4, 5, 6, 7, 8, 9, 0].includes(parseInt(btn)) &&
+      mainDisplay.innerText.length < 20
+    ) {
+      addNum(btn);
+    } else if (btn === '.') {
+      comma();
     } else if (btn === 'RESET') {
-      output.innerText = '0';
-      operation = '';
-      display.innerText = operation;
-      // Deleting
+      reset();
     } else if (btn === 'DEL') {
-      // If you delete everything, it displays 0
-      if (output.innerText.length <= 1) {
-        output.innerText = '0';
-        operation = '';
-        display.innerText = operation;
-        // Deleting last character
-      } else {
-        output.innerText = output.innerText.slice(0, -1);
-        operation = operation.slice(0, -1);
-        display.innerText = operation;
-      }
-      // Operators
-    } else if (['+', '-', '/'].includes(btn)) {
-      output.innerText = '';
-      operation += btn;
-      display.innerText = operation;
-    } else if (btn === 'x') {
-      output.innerText = btn;
-      operation += '*';
-      display.innerText = operation;
+      del();
+    } else if (['+', '-', 'x', '/'].includes(btn)) {
+      operate(btn);
     } else if (btn === '=') {
-      operation = `${eval(operation)}`;
-      output.innerText = `${eval(operation)}`;
-      display.innerText = operation;
+      equals();
     }
   });
 }
