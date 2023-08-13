@@ -80,6 +80,7 @@ function comma() {
 }
 
 function operate(btn) {
+  // Allowing changing operators
   if (
     (['+', '-', '*', '/'].includes(previousNums.slice(-2, -1)) &&
       currentNum === '') ||
@@ -96,6 +97,7 @@ function operate(btn) {
       previousNums += ` ${operation} `;
       secDisplay.innerText = previousNums;
     }
+    // Initializing operations
   } else if (currentNum !== 0 && currentNum !== '') {
     previousNums += currentNum;
     previousNums = eval(previousNums);
@@ -128,12 +130,19 @@ function equals() {
   currentNum = currentNum.toString();
   previousNums = '';
 
+  // Preventing bugs
   if (
     mainDisplay.innerText === 'Infinity' ||
     mainDisplay.innerText === '-Infinity'
   ) {
     reset();
     mainDisplay.innerText = 'Cannot divide by 0.';
+  } else if (
+    mainDisplay.innerText === 'NaN' ||
+    mainDisplay.innerText === 'undefined'
+  ) {
+    reset();
+    mainDisplay.innerText = 'Something went wrong.';
   }
 
   smallerFont();
