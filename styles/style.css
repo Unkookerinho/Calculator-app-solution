@@ -105,6 +105,12 @@ button {
   border: none;
   border-radius: 7px;
 }
+button:hover {
+  transform: scale(1.025);
+}
+button:active {
+  transform: scale(0.975);
+}
 button.primary {
   background-color: var(--clr-key-primary-background);
   border-bottom: 4px solid var(--clr-key-primary-shadow);
@@ -215,6 +221,7 @@ main {
   width: 258px;
   font-size: 0.8rem;
   text-align: end;
+  overflow: hidden;
 }
 
 .output {
