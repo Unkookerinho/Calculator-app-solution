@@ -128,7 +128,10 @@ function equals() {
   currentNum = currentNum.toString();
   previousNums = '';
 
-  if (mainDisplay.innerText === 'Infinity') {
+  if (
+    mainDisplay.innerText === 'Infinity' ||
+    mainDisplay.innerText === '-Infinity'
+  ) {
     reset();
     mainDisplay.innerText = 'Cannot divide by 0.';
   }
